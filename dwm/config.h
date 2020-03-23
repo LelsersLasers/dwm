@@ -83,7 +83,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },       //IDK
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },       //IDK
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },       //IDK 
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } }        //IDK
+	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },       //IDK
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
