@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
@@ -39,7 +39,7 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "Air",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
@@ -61,13 +61,13 @@ static const char *termcmd[]  = { "termite", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } }, //start dmenu
+	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } }, //start dmenu
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },  //start terminal (termite)
 	//{ MODKEY,                       XK_b,      togglebar,      {0} },            //toggle bar
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },       //move focus one down
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },       //move focus one up
 	//{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },     //increase number in 'Master' section
-	//{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },     //decrease number in 'Master' section
+	//{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },     //decrease number in 'Master' section, note: clashes with dmenu launcher
 	{ MODKEY|ShiftMask,             XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY|ShiftMask,             XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },              //make the current window the 'Master' window
@@ -80,10 +80,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },              //Toggles the current window to floating or not floating
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },      //creates a temporary WS with all windows (from all WSs)
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },      //'tags' all the WSs with the current window
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },       //IDK
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },       //IDK
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },       //IDK 
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },       //IDK
+	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },       //Has to do with Monitors
+	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },       //Have only 1 monitor so I can't test
+	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },       //^
+	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },       //^
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
