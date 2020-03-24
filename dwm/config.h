@@ -12,6 +12,7 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
+//static const char col_cyan[]        = "#1c474f"; //my blue
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -39,7 +40,7 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
-	{ "Air",      NULL },    /* no layout function means floating behavior */
+	{ "Flo",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
@@ -74,16 +75,17 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,           {0} },              //switches between the last 2 used workspaces
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },              //close the current window
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, //make the current layout 'Master and Stack'
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} }, //make the current layout 'Floating'
+	{ MODKEY,                       XK_i,      setlayout,      {.v = &layouts[1]} }, //make the current layout 'Floating', note: clashes with increase number in 'Master' section
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, //make the current layout 'Max'
-	{ MODKEY,                       XK_space,  setlayout,      {0} },              //not quite sure, seems to switch between 'Max' and 'MaS' layouts
+	{ MODKEY,                       XK_f,      togglefullscr,  {0} },              //toggles the current to window to fullscreen
+	{ MODKEY,                       XK_space,  setlayout,      {0} },              //not quite sure, seems to switch between the last 2 layouts used
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },              //Toggles the current window to floating or not floating
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },      //creates a temporary WS with all windows (from all WSs)
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },      //'tags' all the WSs with the current window
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },       //Has to do with Monitors
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },       //Have only 1 monitor so I can't test
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },       //^
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },       //^
+	//{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },      //'tags' all the WSs with the current window
+	//{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },       //Has to do with Monitors
+	//{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },       //Have only 1 monitor so I can't test
+	//{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },       //^
+	//{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },       //^
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
