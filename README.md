@@ -3,7 +3,7 @@ My Personal files for dwm. I have this in my home dir. By default, terminal is '
 
 My dmenu is also from suckless.org (not arch wiki)
 
-Current patches: attachaside, actualfullscreen, movestack, gridmode, uselessgaps
+Current patches: attachaside, actualfullscreen, movestack, gridmode, uselessgaps, autostart
 
 INSTALL:
 
