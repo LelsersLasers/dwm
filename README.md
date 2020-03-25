@@ -16,8 +16,13 @@ Put 'autostart.sh' into the .dwm folder (might have to create, .dwm folder is in
 Also create 'dwm.desktop' in the '/usr/share/xsessions/' folder. ('sudo vim /usr/share/xsessions/dwm.desktop'). Copy the following in:
 
 [Desktop Entry]
+
 Encoding=UTF-8
+
 Name=dwm
+
 Comment=dwm window manager
+
 Exec=/usr/local/bin/dwm
+
 Type=Application
