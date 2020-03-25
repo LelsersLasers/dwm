@@ -15,4 +15,4 @@ Have 'nitrogen' and use it to set wallpaper
 
 Go into the dwm folder (might be 'dwm/dwm') and 'sudo make clean install'
 
-Go into .dwm folder and 'sudo chmod a+x autostart.sh' to have wallpaper.
+Put 'autostart.sh' into the .dwm folder and 'sudo chmod a+x autostart.sh' to have wallpaper.
