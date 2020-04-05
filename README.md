@@ -7,11 +7,15 @@ Current patches: attachaside, actualfullscreen, movestack, gridmode, fullgaps, a
 
 INSTALL:
 
-Have 'dmenu', Have 'termite' (not required, can just find your terminal in dmenu), Have 'nitrogen' and use it to set wallpaper once, Have 'make', Have 'gcc'.
+Have 'dmenu', Have 'termite' (not required, can just find your terminal in dmenu), Have 'nitrogen' and use it to set wallpaper once, Have 'make', Have 'gcc', Have 'pacman-contrib', Have 'alsa-utils'.
 
 Go into the dwm folder (might be 'dwm/dwm', if so, just move it up to home dir) and 'sudo make clean install' once inside folder.
 
 Put 'autostart.sh' into the .dwm folder (might have to create, .dwm folder is in home dir) and 'sudo chmod a+x autostart.sh' to have wallpaper.
+
+For each file in the 'dwmBar' folder, 'sudo chmod a+x $nameOfFile'.
+
+Go into the 'dwmblocks' folder and 'sudo make clean install'.
 
 Also create 'dwm.desktop' in the '/usr/share/xsessions/' folder. ('sudo vim /usr/share/xsessions/dwm.desktop'). Copy the following in:
 
