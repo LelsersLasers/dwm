@@ -1,5 +1,5 @@
 # dwm
-Need to Fix: Add boarders back, but thinner, and make Picom not make those transparent.
+Need to Fix: Add boarders back, but thinner, and make Picom not make the boarders transparent.
 
 My Personal files for dwm. I have this in my home dir. By default, terminal is 'termite' and run launcher is 'dmenu'. 
 
@@ -9,7 +9,7 @@ Current patches: attachaside, actualfullscreen, movestack, gridmode, fullgaps, a
 
 INSTALL:
 
-Have 'dmenu', Have 'termite' (not required, can just find your terminal in dmenu), Have 'nitrogen' and use it to set wallpaper once, Have 'make', Have 'gcc', Have 'pacman-contrib', Have 'alsa-utils'.
+Have 'dmenu', Have 'termite' (not required, can just find your terminal in dmenu), Have 'nitrogen' and use it to set wallpaper once, Have 'make', Have 'gcc', Have 'pacman-contrib', Have 'alsa-utils', Have 'picom' (should work without....
 
 Go into the dwm folder (might be 'dwm/dwm', if so, just move it up to home dir) and 'sudo make clean install' once inside folder.
 
