@@ -11,7 +11,7 @@ Current patches: attachaside, actualfullscreen, movestack, gridmode, fullgaps, a
 
 INSTALL:
 
-Have 'dmenu', Have 'termite' (not required, can just find your terminal in dmenu), Have 'nitrogen' and use it to set wallpaper once, Have 'make', Have 'gcc', Have 'pacman-contrib', Have 'alsa-utils', Have 'picom' (should work without....
+Have 'dmenu', Have 'termite' (not required, can just find your terminal in dmenu), Have 'nitrogen' and use it to set wallpaper once, Have 'make', Have 'gcc', Have 'pacman-contrib', Have 'alsa-utils', Have 'picom' (should work without it)....
 
 Go into the dwm folder (might be 'dwm/dwm', if so, just move it up to home dir) and 'sudo make clean install' once inside folder.
 
