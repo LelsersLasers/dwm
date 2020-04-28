@@ -2,11 +2,11 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
 	
-	{" Mem: ", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g",	0.5,		0},
+	{" Mem: ", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g",	1,		0},
 
 	{"", "~/dwmBar/pacupdate",						0,		9},
 
-	{"Vol: ", "~/dwmBar/volume",						0.5,		10},
+	{"Vol: ", "~/dwmBar/volume",						1,		10},
 
 	//{"☀", "xbacklight | sed 's/\\..*//'",					0,		11},
 	
