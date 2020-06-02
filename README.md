@@ -1,7 +1,7 @@
 # dwm
 Need to Fix: Make Picom not make the boarders transparent. Also need to make bar update correctly.
 
-Will add: cyclelayouts, cfacts, restartsig, fixborders.
+Will add: cyclelayouts, cfacts, restartsig, fixborders, awesomebar.
 
 Also need to do: Add keybindings for more apps, and add all keybinding and number changes in config.h to config.def.h (make patching easier, and might fix some other minor issues).
 
