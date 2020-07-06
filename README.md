@@ -1,5 +1,5 @@
 # dwm
-Need to Fix: Make Picom not make the boarders transparent.FIX CFACTS AND ALPHA!!
+Need to Fix: Make Picom not make the boarders transparent. FIX ALPHA!!
 
 Also need to do: Add keybindings for more apps, and add all keybinding and number changes in config.h to config.def.h (make patching easier, and might fix some other minor issues).
 
