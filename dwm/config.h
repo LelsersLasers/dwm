@@ -2,10 +2,12 @@
 
 /* appearance */
 static const unsigned int borderpx  = 4;        /* border pixel of windows */
-static const unsigned int gappx     = 12;       /* gaps between windows */
+static const unsigned int gappx     = 10;       /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
+static const int horizpadbar        = 2;        /* horizontal padding for statusbar */
+static const int vertpadbar         = 2;        /* vertical padding for statusbar */
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
@@ -13,14 +15,26 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
+
+//static const unsigned int baralpha = 0xd0;
+static const unsigned int baralpha = 0xEE;
+//static const unsigned int borderalpha = OPAQUE;
+static const unsigned int borderalpha = 0xEE;
+
 //static const char col_cyan[]        = "#1c474f"; //my blue
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
+static const unsigned int alphas[][3]      = {
+	/*               fg      bg        border     */
+	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
+	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
+};
 
 /* tagging */
+static const char *tagsalt[] = { "a", "b", "c", "d", "e", "f", "g", "h", "i" };
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
@@ -42,9 +56,10 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
-	{ "Flo",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
 	{ "HHH",      grid },
+    { "[M]",      monocle },
+	{ "Flo",      NULL },    /* no layout function means floating behavior */
+	{ NULL,       NULL },
 };
 
 /* key definitions */
@@ -69,23 +84,29 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } }, //start dmenu
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },  //start terminal (termite)
 	//{ MODKEY,                       XK_b,      togglebar,      {0} },            //toggle bar
+	{ MODKEY|ShiftMask,             XK_n,      togglealttag,   {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },       //move focus one down
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },       //move focus one up
 	//{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },     //increase number in 'Master' section
 	//{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },     //decrease number in 'Master' section, note: clashes with dmenu launcher
-	{ MODKEY|ShiftMask,             XK_h,      setmfact,       {.f = -0.05} },     //decrease 'Master' width
-	{ MODKEY|ShiftMask,             XK_l,      setmfact,       {.f = +0.05} },     //increase 'Master' width
+	{ MODKEY,                       XK_u,      setmfact,       {.f = -0.05} },     //decrease 'Master' width
+	{ MODKEY,                       XK_p,      setmfact,       {.f = +0.05} },     //increase 'Master' width
+    
+    	{ MODKEY,                       XK_i,      setcfact,       {.f = +0.25} },     //increase window height
+	{ MODKEY,                       XK_o,      setcfact,       {.f = -0.25} },     //decrease window height
+	{ MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
+    
 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },       //move current window up instack
 	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },       //move current window down in stack
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },              //make the current window the 'Master' window
-	{ MODKEY,                       XK_Tab,    view,           {0} },              //switches between the last 2 used workspaces
+	//{ MODKEY,                       XK_Tab,    view,           {0} },              //switches between the last 2 used workspaces
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },              //close the current window
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, //make the current layout 'Master and Stack'
-	{ MODKEY,                       XK_i,      setlayout,      {.v = &layouts[1]} }, //make the current layout 'Floating', note: clashes with increase number in 'Master' section
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, //make the current layout 'Max'
-	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} }, // make current layout 'Grid'
+	//{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, //make the current layout 'Master and Stack'
+	//{ MODKEY,                       XK_i,      setlayout,      {.v = &layouts[1]} }, //make the current layout 'Floating', note: clashes with increase number in 'Master' section
+	//{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, //make the current layout 'Max'
+	//{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} }, // make current layout 'Grid'
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },              //toggles the current to window to fullscreen
-	{ MODKEY,                       XK_space,  setlayout,      {0} },              //not quite sure, seems to switch between the last 2 layouts used
+	//{ MODKEY,                       XK_space,  setlayout,      {0} },              //not quite sure, seems to switch between the last 2 layouts used
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },              //Toggles the current window to floating or not floating
 	{ MODKEY,                       XK_c,      spawn,          {.v = googlecmd} }, //start google chrome
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },      //creates a temporary WS with all windows (from all WSs)
@@ -94,6 +115,8 @@ static Key keys[] = {
 	//{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },       //Have only 1 monitor so I can't test
 	//{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },       //^
 	//{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },       //^
+	{ MODKEY,			XK_Tab,  cyclelayout,    {.i = +1 } },        //cycles the layouts one forward, note: clashes with swap between last 2 workspaces
+	//{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = -1 } },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
@@ -107,6 +130,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_x,      quit,           {0} },
+    	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} }, 
 };
 
 /* button definitions */

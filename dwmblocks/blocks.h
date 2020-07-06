@@ -5,9 +5,12 @@ static const Block blocks[] = {
 	
 	{"| Mem: ", "free -h | awk '/^Mem/ { print $3\"/\"$2 } ' | sed s/i//g ",	1,		0},
 
-	{"| ", "~/dwmBar/pacupdate",						0,		9},
+	//{"| ", "~/dwmBar/pacupdate",						0,		9},
 
 	{"| Vol: ", "~/dwmBar/volume",						1,		10},
+
+	{"| Bat: ", "~/dwmBar/battery",						1,		10},
+	
 
 	//{"☀", "xbacklight | sed 's/\\..*//'",					0,		11},
 	

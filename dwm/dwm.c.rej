@@ -1,0 +1,19 @@
+--- dwm.c	2019-02-02 15:55:28.000000000 +0300
++++ dwm.c	2020-02-18 03:33:58.213447007 +0300
+@@ -1712,13 +1738,15 @@
+ 		mw = m->ww;
+ 	for (i = my = ty = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
+ 		if (i < m->nmaster) {
+-			h = (m->wh - my) / (MIN(n, m->nmaster) - i);
++			h = (m->wh - my) * (c->cfact / mfacts);
+ 			resize(c, m->wx, m->wy + my, mw - (2*c->bw), h - (2*c->bw), 0);
+ 			my += HEIGHT(c);
++			mfacts -= c->cfact;
+ 		} else {
+ 			h = (m->wh - ty) / (n - i);
+ 			resize(c, m->wx + mw, m->wy + ty, m->ww - mw - (2*c->bw), h - (2*c->bw), 0);
+ 			ty += HEIGHT(c);
++			sfacts -= c->cfact;
+ 		}
+ }
+ 
