@@ -1,7 +1,7 @@
 # dwm
 Need to Fix: Make Picom not make the boarders transparent.FIX CFACTS AND ALPHA!!
 
-Will add: fixborders, save_floats, alternativetags, barpadding or statuspadding.
+Will add: fixborders, alternativetags, barpadding or statuspadding.
 
 Also need to do: Add keybindings for more apps, and add all keybinding and number changes in config.h to config.def.h (make patching easier, and might fix some other minor issues).
 
@@ -9,7 +9,7 @@ My Personal files for dwm. I have this in my home dir. By default, terminal is '
 
 My dmenu is also from suckless.org (not arch repos)
 
-Current patches: attachaside, actualfullscreen, movestack, gridmode, fullgaps, autostart, restartsig, cyclelayouts,
+Current patches: attachaside, actualfullscreen, movestack, gridmode, fullgaps, autostart, restartsig, cyclelayouts,cfacts, alpha, save_floats,
 
 INSTALL:
 
