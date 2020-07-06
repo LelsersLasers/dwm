@@ -1,7 +1,7 @@
 # dwm
-Need to Fix: Make Picom not make the boarders transparent.
+Need to Fix: Make Picom not make the boarders transparent.FIX CFACTS!!
 
-Will add: cfacts, fixborders, alpha, save_floats, alternativetags, barpadding or statuspadding.
+Will add: fixborders, alpha, save_floats, alternativetags, barpadding or statuspadding.
 
 Also need to do: Add keybindings for more apps, and add all keybinding and number changes in config.h to config.def.h (make patching easier, and might fix some other minor issues).
 
